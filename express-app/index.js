@@ -23,9 +23,9 @@ const schema = Joi.object({
 });
 
 app.post('/api/somedata', (req, res) => {
-  const schemaCheck = schema.validate(req.body);
-  if (schemaCheck.error){
-    res.status(400).send(schemaCheck.error);
+  const { error } = schema.validate(req.body);
+  if (error){
+    res.status(400).send(error.details[0].message);
     return;
   }
   const somedata = {
