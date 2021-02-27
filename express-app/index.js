@@ -10,10 +10,10 @@ app.use(express.json());
 // request validation
 const pattern = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 const schema = Joi.object({
-  startDate: Joi.string().regex(pattern),
-  endDate: Joi.string().regex(pattern),
-  minCount: Joi.number().integer(),
-  maxCount: Joi.number().integer(),
+  startDate: Joi.string().regex(pattern).required(),
+  endDate: Joi.string().regex(pattern).required(),
+  minCount: Joi.number().integer().required(),
+  maxCount: Joi.number().integer().required(),
 });
 
 // mongo connection
@@ -53,7 +53,7 @@ app.post("/", async (req, res) => {
       },
       {
         $match: {
-          totalCount: { $gt: req.body.minCount, $lt: req.body.maxCount },
+          totalCount: { $gt: parseInt(req.body.minCount), $lt: parseInt(req.body.maxCount) },
         },
       },
       { $project: { _id: 0 } },
