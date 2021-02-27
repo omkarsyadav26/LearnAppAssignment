@@ -1,0 +1,25 @@
+{
+  "name": "LearnAppAssignment-2",
+  "version": "1.0.0",
+  "description": "Assignment given by LearnApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omkarsyadav26/LearnAppAssignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omkarsyadav26/LearnAppAssignment/issues"
+  },
+  "homepage": "https://github.com/omkarsyadav26/LearnAppAssignment#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "nodemon": "^2.0.7"
+  }
+}
