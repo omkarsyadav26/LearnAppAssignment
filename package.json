@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/omkarsyadav26/LearnAppAssignment#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^17.4.0",
+    "mongoose": "^5.11.18",
     "nodemon": "^2.0.7"
   }
 }
