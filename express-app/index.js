@@ -27,8 +27,11 @@ mongoose.connect(
 app.post("/", async (req, res) => {
   const { error } = schema.validate(req.body);
   if (error) {
-    res.status(400).send(error.details[0].message);
-    return;
+    return res.status(400).send({
+      code: 1,
+      msg: "Invalid request",
+      records: error.details[0].message,
+    });
   }
   try {
     const result = await inventory.aggregate([
@@ -61,7 +64,11 @@ app.post("/", async (req, res) => {
       records: result,
     });
   } catch (err) {
-    return res.send(err);
+    return res.send({
+      code: 2,
+      msg: "Runtime error",
+      records: result,
+    });
   }
 });
 
